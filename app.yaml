@@ -14,4 +14,3 @@ libraries:
 
 env_variables:
   DJANGO_SETTINGS_MODULE: 'stateprices.settings'
-  SETTINGS_MODULE: 'stateprices.settings'

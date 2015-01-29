@@ -1,6 +1,5 @@
 import os,sys
-os.environ['DJANGO_SETTINGS_MODULE'] = 'untitled.settings'
-os.environ['SETTINGS_MODULE'] = 'untitled.settings'
+os.environ['DJANGO_SETTINGS_MODULE'] = 'stateprices.settings'
 
 # Google App Engine imports.
 from google.appengine.ext.webapp import util
@@ -23,16 +22,20 @@ import django.dispatch.dispatcher
 #   log_exception, django.core.signals.got_request_exception)
 
 # Unregister the rollback event handler.
-django.dispatch.dispatcher.disconnect(
-    django.db._rollback_on_exception,
-    django.core.signals.got_request_exception)
+# django.dispatch.dispatcher.disconnect(
+#     django.db._rollback_on_exception,
+#     django.core.signals.got_request_exception)
+# Fix Django disconnect
+django.dispatch.Signal.disconnect(
+    django.core.signals.got_request_exception,
+    django.db._rollback_on_exception)
 
-def main():
-  # Create a Django application for WSGI.
-  application = django.core.handlers.wsgi.WSGIHandler()
+# def main():
+# Create a Django application for WSGI.
+app = django.core.handlers.wsgi.WSGIHandler()
 
-  # Run the WSGI CGI handler with that application.
-  util.run_wsgi_app(application)
+# Run the WSGI CGI handler with that application.
+util.run_wsgi_app(app)
 
-if __name__ == '__main__':
-  main()
+# if __name__ == '__main__':
+#   main()
