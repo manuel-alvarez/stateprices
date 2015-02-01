@@ -29,6 +29,7 @@ class SourcesView(TemplateView):
             url_link_text = 'Login'
         context['url'] = url
         context['url_link_text'] = url_link_text
+        context['source_save_url'] = reverse('save_source')
         context['form'] = SourceForm()
 
         return context

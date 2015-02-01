@@ -17,7 +17,7 @@
         </ul>
     {% endif %}
     <h2>{% trans "Add new items" %}</h2>
-    <form method="post" action="{% url 'save_source' %}">
+    <form method="post" action="{{ source_save_url }}">
     {% csrf_token %}
         <dl>
             <input type="submit" value="Submit" />
