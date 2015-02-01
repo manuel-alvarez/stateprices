@@ -10,7 +10,7 @@ admin.autodiscover()
 urlpatterns = patterns('',
     # Examples:
     url(r'^$', HomeView.as_view(), name='home'),
-    # url(r'^stateprices/', include('stateprices.foo.urls')),
+    url(r'^sources/', include('sources.urls')),
 
     # Uncomment the admin/doc line below to enable admin documentation:
     url(r'^sp-admin/doc/', include('django.contrib.admindocs.urls')),

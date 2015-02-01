@@ -1,0 +1,34 @@
+{% load i18n %}
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>{{ title }}</title>
+    <link type="text/css" rel="stylesheet" href="/static/css/sp.css" />
+</head>
+<body>
+    <h1>{{ title }}</h1>
+
+    {% if sources %}
+        <ul>
+        {% for source in sources %}
+            <li>{{ source.name }} · {{ source.api_source }}</li>
+        {% endfor %}
+        </ul>
+    {% endif %}
+    <h2>{% trans "Add new items" %}</h2>
+    <form method="post" action="{% url 'save_source' %}">
+    {% csrf_token %}
+        <dl>
+            <input type="submit" value="Submit" />
+            {% for field in form %}
+                <dt><label for="{{ field.id_for_label }}">{{ field.label|capfirst }}:</label></dt>
+                <dd><input type="{{ field.type }}" id="{{ field.id_for_label }}" name="{{ field.name }}" placeholder="{{ field.help_text }}" /></dd>
+            {% endfor %}
+            <input type="submit" value="Submit" />
+        </dl>
+    </form>
+
+    <p><a href="{{ url }}">{{ url_link_text }}</a></p>
+</body>
+</html>
