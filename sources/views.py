@@ -37,7 +37,10 @@ class SourcesView(TemplateView):
 class SourceSaveView(View):
     form_class = SourceForm
 
-    def post(self, request, *args, **kwargs):
+    def get(self, request):
+        return HttpResponseRedirect(reverse('sources'))
+
+    def post(self, request):
         form = self.form_class(request.POST)
         if form.is_valid():
             # TODO: Do things that have to do with source object form values
