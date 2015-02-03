@@ -7,7 +7,7 @@ threadsafe: true
 handlers:
 - url: /static
   static_dir: static
-  
+
 - url: /.*
   script: main.app
 
@@ -17,3 +17,7 @@ libraries:
 
 env_variables:
   DJANGO_SETTINGS_MODULE: 'stateprices.settings'
+  SP_IDEALISTA_API_KEY: 'XAcJJUvzdZuO0btqPFUHgSGtAAb80pmc'
+  SP_DEFAULT_ADDRESS: '43.5417747,-5.6648064'
+  SP_DEFAULT_DISTANCE: '500'
+  SP_DEFAULT_OPERATION: 'rent'

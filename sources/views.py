@@ -27,10 +27,13 @@ class SourcesView(TemplateView):
         else:
             url = users.create_login_url(self.request.get_full_path())
             url_link_text = 'Login'
-        context['url'] = url
-        context['url_link_text'] = url_link_text
-        context['source_save_url'] = reverse('save_source')
-        context['form'] = SourceForm()
+        additional_context = {
+            'url': url,
+            'url_link_text': url_link_text,
+            'source_save_url': reverse('save_source'),
+            'form': SourceForm(),
+        }
+        context.update(additional_context)
 
         return context
 

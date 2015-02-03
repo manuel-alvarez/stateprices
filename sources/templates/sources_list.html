@@ -12,7 +12,7 @@
     {% if sources %}
         <ul>
         {% for source in sources %}
-            <li>{{ source.name }} · {{ source.api_source }}</li>
+            <li>{{ source.name }} · <a href="{{ source.sample_source }}">{{ source.sample_source }}</a></li>
         {% endfor %}
         </ul>
     {% endif %}

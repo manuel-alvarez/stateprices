@@ -154,3 +154,11 @@ LOGGING = {
         },
     }
 }
+
+# API Keys
+SP_IDEALISTA_API_KEY = os.environ.get('SP_IDEALISTA_API_KEY', '')
+
+# Default params for URLs
+SP_DEFAULT_ADDRESS = os.environ.get('SP_DEFAULT_ADDRESS', '')
+SP_DEFAULT_DISTANCE = os.environ.get('SP_DEFAULT_DISTANCE', '')
+SP_DEFAULT_OPERATION = os.environ.get('SP_DEFAULT_OPERATION', '')
